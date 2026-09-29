@@ -1,0 +1,18 @@
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+	zephyr,user {
+		trigger-gpios = <&arduino_header 8 GPIO_ACTIVE_HIGH>; #D2
+		echo-gpios = <&arduino_header 9 GPIO_ACTIVE_HIGH>; #D3
+	};
+};
+
+&timers3 {
+	status = "okay";
+	st,prescaler = <83>;
+
+	echo_counter: counter {
+		status = "okay";
+	};
+};
+
